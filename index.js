@@ -1,3 +1,12 @@
+document.addEventListener('click', (e) => {
+  const { target } = e;
+  if (!target.matches('nav a')) {
+    return;
+  }
+  e.preventDefault();
+  route();
+})
+
 const route = (event) => {
   event = event || window.event;
   event.preventDefault();
