@@ -3,6 +3,7 @@ document.addEventListener('click', (e) => {
   if (!target.matches('nav a')) {
     return;
   }
+  console.log('click')
   e.preventDefault();
   route();
 })
@@ -16,9 +17,9 @@ const route = (event) => {
 
 const routes = {
   404: '/routes/404.html',
-  '/routes/': '/routes/home.html',
-  '/routes/cart': '/routes/cart.html',
-  '/routes/about': '/routes/about.html',
+  '/': '/routes/home.html',
+  '/cart': '/routes/cart.html',
+  '/about': '/routes/about.html',
 };
 
 const handleLocation = async () => {
