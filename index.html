@@ -4,28 +4,34 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
   <title>Document</title>
 </head>
 <body>
-  <header>
-    <H1>HEADER</H1>
-  </header>
-  <main>
-    <nav id="nav">
-      <a href="/" onclick="route()">Home</a>
-      <a href="/cart" onclick="route()">Cart</a>
-      <a href="/about" onclick="route()">About</a>
-      <a href="/abougft" onclick="route()">About</a>
-    </nav>
-    <div id="main-page">
-
-    </div>
-  </main>
-  <footer>
-    <h1>FOOTER</h1>
-  </footer>
-
-  <script src="./index.js"></script>
+  <div id="app"></div>
+  <script>
+    const nav = `<a href="/">Home</a> | 
+                 <a href="/about">About</a> | 
+                 <a href="/contact">Contact</a>`;
+    const routes = {
+      "/": `<h1>Home</h1>${nav}<p>Welcome home!</p>`,
+      "/about": `<h1>About</h1>${nav}<p>This is a tiny SPA</p>`,
+    };
+    const render = path => {
+      document.querySelector("#app").innerHTML = routes[path] || `<h1>404</h1>${nav}`
+      ;
+      document.querySelectorAll('[href^="/"]').forEach(el => 
+        el.addEventListener("click", evt => {
+          evt.preventDefault();
+          const {pathname: path} = new URL(evt.target.href);
+          window.history.pushState({path}, path, path);
+          render(path);
+        })
+      );
+    };
+    window.addEventListener("popstate", e =>
+      render(new URL(window.location.href).pathname)
+    );
+    render("/");
+  </script>
 </body>
 </html>
