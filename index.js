@@ -31,7 +31,10 @@ const handleLocation = async () => {
   document.getElementById('main-page').innerHTML = html;
 };
 
-window.addEventListener('load', route);
+window.addEventListener('load', (e) => {
+  e.preventDefault();
+  route();
+});
 window.addEventListener('hashchange', handleLocation);
 window.onpopstate = handleLocation;
 window.route = route;
