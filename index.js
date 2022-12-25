@@ -1,12 +1,12 @@
-document.addEventListener('click', (e) => {
-  const { target } = e;
-  if (!target.matches('nav a')) {
-    return;
-  }
-  console.log('click')
-  e.preventDefault();
-  route();
-})
+// document.addEventListener('click', (e) => {
+//   const { target } = e;
+//   if (!target.matches('nav a')) {
+//     return;
+//   }
+//   console.log('click')
+//   e.preventDefault();
+//   route();
+//  })
 
 const route = (event) => {
   event = event || window.event;
@@ -30,6 +30,8 @@ const handleLocation = async () => {
   document.getElementById('main-page').innerHTML = html;
 };
 
+window.addEventListener('load', route);
+window.addEventListener('hashchange', route);
 window.onpopstate = handleLocation;
 window.route = route;
 handleLocation();
