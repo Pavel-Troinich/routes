@@ -9,6 +9,7 @@
 //  })
 
 const route = (event) => {
+  console.log(window.location.href)
   event = event || window.event;
   event.preventDefault();
   window.history.pushState({}, '', event.target.href);
@@ -16,10 +17,10 @@ const route = (event) => {
 };
 
 const routes = {
-  404: '/404.html',
+  404: '/4004.html',
   '/': '/home.html',
-  '/cart': '/cart.html',
-  '/about': '/about.html',
+  '/cart': '/tcart.html',
+  '/about': '/tabout.html',
 };
 
 const handleLocation = async () => {
