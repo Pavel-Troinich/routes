@@ -17,10 +17,10 @@ const route = (event) => {
 };
 
 const routes = {
-  404: '/4004.html',
-  '/': '/home.html',
-  '/cart': '/tcart.html',
-  '/about': '/tabout.html',
+  404: '/routes/4004.html',
+  '/': '/routes/home.html',
+  '/cart': '/routes/tcart.html',
+  '/about': '/routes/tabout.html',
 };
 
 const handleLocation = async () => {
